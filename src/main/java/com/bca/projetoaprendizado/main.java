@@ -5,7 +5,9 @@
  */
 package com.bca.projetoaprendizado;
 
-import com.bca.projetoaprendizado.view.PessoaView2;
+import com.bca.projetoaprendizado.model.vo.PessoaVO;
+import com.bca.projetoaprendizado.model.dao.PessoaDAO;
+import com.bca.projetoaprendizado.util.MyException;
 
 /**
  *
@@ -13,13 +15,17 @@ import com.bca.projetoaprendizado.view.PessoaView2;
  */
 public class main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException {
         // metodo usado para iniciar o sistema
 
-        PessoaView2 tela = new PessoaView2();
-        tela.setVisible(true);
-        tela.setLocationRelativeTo(null);
-
+//        PessoaView2 tela = new PessoaView2();
+//        tela.setVisible(true);
+//        tela.setLocationRelativeTo(null);
+        
+        PessoaDAO pdao = new PessoaDAO();
+        pdao.Salvar(new PessoaVO(11,"hueberto1", 32122));
+        
+        
     }
 
 }

@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-import com.bca.projetoaprendizado.model.vo.PessoaVO;
+import com.bca.projetoaprendizado.util.PessoaVO;
 
 /**
  *

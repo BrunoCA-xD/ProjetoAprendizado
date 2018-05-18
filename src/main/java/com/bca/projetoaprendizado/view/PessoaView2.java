@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 import com.bca.projetoaprendizado.Controller.PessoaController;
 import com.bca.projetoaprendizado.util.MyException;
-import com.bca.projetoaprendizado.model.vo.PessoaVO;
+import com.bca.projetoaprendizado.util.PessoaVO;
 import com.bca.projetoaprendizado.util.Praticidade;
 
 /**
