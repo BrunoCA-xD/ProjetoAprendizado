@@ -8,7 +8,7 @@ package com.bca.projetoaprendizado.model.bo;
 import com.bca.projetoaprendizado.util.MyException;
 import java.util.List;
 import com.bca.projetoaprendizado.model.dao.PessoaDAO;
-import com.bca.projetoaprendizado.util.PessoaVO;
+import com.bca.projetoaprendizado.model.vo.PessoaVO;
 
 /**
  *
@@ -17,7 +17,7 @@ import com.bca.projetoaprendizado.util.PessoaVO;
 public class PessoaBO {
 
     public void save(PessoaVO p) throws MyException {
-      //  new PessoaDAO().Salvar(p);
+        new PessoaDAO().Salvar(p);
     }
 
     public void list() {
@@ -25,14 +25,12 @@ public class PessoaBO {
     }
 
     public List<PessoaVO> lista() throws MyException {
-        List<PessoaVO> lst = null;
-                //new PessoaDAO().listar();
+        List<PessoaVO> lst =new PessoaDAO().listar();
         return lst;
     }
 
     public List<PessoaVO> lista(String sSearch) throws MyException {
-        List<PessoaVO> lst = null; 
-//        new PessoaDAO().listar(sSearch);;
+        List<PessoaVO> lst = new PessoaDAO().listar(sSearch);;
         return lst;
     }
 }

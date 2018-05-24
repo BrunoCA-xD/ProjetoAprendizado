@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 import com.bca.projetoaprendizado.Controller.PessoaController;
 import com.bca.projetoaprendizado.util.MyException;
-import com.bca.projetoaprendizado.util.PessoaVO;
+import com.bca.projetoaprendizado.model.vo.PessoaVO;
 import com.bca.projetoaprendizado.util.Praticidade;
 
 /**
@@ -55,8 +55,8 @@ public class PessoaView2 extends javax.swing.JFrame {
                     }
                 } else {
                     lst.forEach((l) -> {
-                        if (l.getsName().subSequence(0, iSearchLength).equals(txtSearch.getText())) {
-                            System.out.println("DEU CERTO \n" + l.getsName() + "\n");
+                        if (l.getName().subSequence(0, iSearchLength).equals(txtSearch.getText())) {
+                            System.out.println("DEU CERTO \n" + l.getName() + "\n");
 
                         }
 
@@ -86,7 +86,7 @@ public class PessoaView2 extends javax.swing.JFrame {
                         lst = control.lista(tc.getText());
                         tc.getDocument().removeDocumentListener(this);
                         lst.forEach((l) -> {
-                            cboModel.addElement(l.getsName());
+                            cboModel.addElement(l.getName());
 
                         });
                     } catch (MyException ex) {
@@ -94,8 +94,8 @@ public class PessoaView2 extends javax.swing.JFrame {
                     }
                 } else {
                     lst.forEach((l) -> {
-                        if (l.getsName().subSequence(0, iSearchLength).equals(tc.getText())) {
-                            System.out.println("DEU CERTO \n" + l.getsName() + "\n");
+                        if (l.getName().subSequence(0, iSearchLength).equals(tc.getText())) {
+                            System.out.println("DEU CERTO \n" + l.getName() + "\n");
 
                         }
 
@@ -342,9 +342,9 @@ public class PessoaView2 extends javax.swing.JFrame {
 
                     lst.forEach((lst1) -> {
                         model.addRow(new Object[]{
-                            lst1.getiCod(),
-                            lst1.getsName(),
-                            lst1.getiLuckyNumber()});
+                            lst1.getId(),
+                            lst1.getName(),
+                            lst1.getLuckynumber()});
                     });
                 } else {
                     JOptionPane.showMessageDialog(null, "Não ha dados para exibir!");
@@ -362,7 +362,7 @@ public class PessoaView2 extends javax.swing.JFrame {
         try {
             PessoaVO objSelected = new BuscaPessoaView().listagem(control.lista());
             if (objSelected != null) {
-                System.out.println(objSelected.getsName());
+                System.out.println(objSelected.getName());
             }
 
 // TODO add your handling code here:
@@ -380,7 +380,7 @@ public class PessoaView2 extends javax.swing.JFrame {
         try {
             PessoaVO objSelected = new BuscaPessoaView().listagem(control.lista(txtSearch.getText()));
             if (objSelected != null) {
-                System.out.println(objSelected.getsName());
+                System.out.println(objSelected.getName());
             }
 
 // TODO add your handling code here:

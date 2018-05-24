@@ -4,7 +4,7 @@ package com.bca.projetoaprendizado.Controller;
 import java.util.List;
 import com.bca.projetoaprendizado.util.MyException;
 import com.bca.projetoaprendizado.model.bo.PessoaBO;
-import com.bca.projetoaprendizado.util.PessoaVO;
+import com.bca.projetoaprendizado.model.vo.PessoaVO;
 
 /**
  *

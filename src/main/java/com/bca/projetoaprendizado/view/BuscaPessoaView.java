@@ -16,7 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
-import com.bca.projetoaprendizado.util.PessoaVO;
+import com.bca.projetoaprendizado.model.vo.PessoaVO;
 
 /**
  *
@@ -117,9 +117,9 @@ public class BuscaPessoaView extends JDialog {
         }
         lst.forEach((lst1) -> {
             model.addRow(new Object[]{
-                lst1.getiCod(),
-                lst1.getsName(),
-                lst1.getiLuckyNumber()});
+                lst1.getId(),
+                lst1.getName(),
+                lst1.getLuckynumber()});
         });
     }
 

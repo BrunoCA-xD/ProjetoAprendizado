@@ -12,6 +12,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.bca.projetoaprendizado.util.HibernateUtil;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,21 +44,16 @@ public class PessoaDAO {
 //    }
     public void Salvar(PessoaVO p) throws MyException {
         //obtem uma sessao
-        System.out.println("sout1");
         session = HibernateUtil.getSessionFactory().openSession();
-        System.out.println("sout2");
         Transaction tx = null; //permite transacao com o BD 
 
         try {
-            System.out.println("sout3");
             tx = session.beginTransaction();
-            System.out.println("sout4");
             session.saveOrUpdate(p);
-            System.out.println("sout5");
             tx.commit();//faz a transacao
         } catch (Exception e) {
             System.out.println("(salvar) problem:" + e.getMessage());
-            
+
             //cancela a transcao em caso de falha
             tx.rollback();
         } finally {
@@ -64,6 +61,39 @@ public class PessoaDAO {
         }
     }
 
+    public List<PessoaVO> listar() {
+        try {
+            List<PessoaVO> Pessoas;
+            session = HibernateUtil.getSessionFactory().openSession();//obtem uma sessao
+            Transaction tx = null; //permite transacao com o BD 
+
+            tx = session.beginTransaction();
+            Pessoas = session.createNativeQuery("select * from pessoa;", PessoaVO.class).list();
+
+            return Pessoas;
+
+        } catch (Exception e) {
+            System.out.println("Problem on list " + e.getMessage());
+        }
+        return null;
+    }
+
+    public List<PessoaVO> listar(String sSearch) {
+        try {
+            List<PessoaVO> Pessoas;
+            session = HibernateUtil.getSessionFactory().openSession();//obtem uma sessao
+            Transaction tx = null; //permite transacao com o BD 
+            tx = session.beginTransaction();
+            Pessoas = session.createNativeQuery("SELECT * FROM pessoa where name like '" + sSearch + "%'", PessoaVO.class).list();
+            if (Pessoas.size() > 0) {
+                return Pessoas;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Problem on lsit with search " + e.getMessage());
+        }
+        return null;
+    }
 
 //public List<PessoaVO> listar() throws MyException {
 //        List<PessoaVO> lst = new ArrayList<>();
