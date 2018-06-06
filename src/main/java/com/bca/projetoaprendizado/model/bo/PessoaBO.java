@@ -16,8 +16,8 @@ import com.bca.projetoaprendizado.model.vo.PessoaVO;
  */
 public class PessoaBO {
 
-    public void save(PessoaVO p) throws MyException {
-        new PessoaDAO().Salvar(p);
+    public boolean save(PessoaVO p) throws MyException {
+        return new PessoaDAO().Salvar(p);
     }
 
     public void list() {

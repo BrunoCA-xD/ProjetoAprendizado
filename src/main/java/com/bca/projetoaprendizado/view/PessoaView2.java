@@ -75,7 +75,7 @@ public class PessoaView2 extends javax.swing.JFrame {
             }
 
         });
-       DefaultComboBoxModel cboModel = (DefaultComboBoxModel) cboSearch.getModel();
+        DefaultComboBoxModel cboModel = (DefaultComboBoxModel) cboSearch.getModel();
         JTextComponent tc = (JTextComponent) cboSearch.getEditor().getEditorComponent();
         tc.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -321,7 +321,12 @@ public class PessoaView2 extends javax.swing.JFrame {
         if (new Praticidade().fieldsFilled(pnlRoot)) {
             PessoaVO objPeople = new PessoaVO(txtName.getText(), Integer.parseInt(txtLuckyNumber.getText()));
             try {
-                control.send(objPeople);
+                
+                if (control.send(objPeople)) {
+                    JOptionPane.showMessageDialog(null, "Deu certo ");
+                    new Praticidade().clearFields(pnlRoot);
+                }
+
             } catch (MyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
@@ -465,64 +470,5 @@ public class PessoaView2 extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnSend() {
-        return btnSend;
-    }
-
-    public void setBtnSend(javax.swing.JButton btnSend) {
-        this.btnSend = btnSend;
-    }
-
-    public javax.swing.JTextField getTxtLuckyNumber() {
-        return txtLuckyNumber;
-    }
-
-    public void setTxtLuckyNumber(javax.swing.JTextField txtLuckyNumber) {
-        this.txtLuckyNumber = txtLuckyNumber;
-    }
-
-    public javax.swing.JTextField getTxtName() {
-        return txtName;
-    }
-
-    public void setTxtName(javax.swing.JTextField txtName) {
-        this.txtName = txtName;
-    }
-
-    public JPanel getPnlRoot() {
-        return pnlRoot;
-    }
-
-    public javax.swing.JButton getBtnLeave() {
-        return btnLeave;
-    }
-
-    public void setBtnLeave(javax.swing.JButton btnLeave) {
-        this.btnLeave = btnLeave;
-    }
-
-    public javax.swing.JButton getBtnSee() {
-        return btnSee;
-    }
-
-    public void setBtnSee(javax.swing.JButton btnSee) {
-        this.btnSee = btnSee;
-    }
-
-    public javax.swing.JTabbedPane getTabpnl() {
-        return tabpnl;
-    }
-
-    public void setTabpnl(javax.swing.JTabbedPane tabpnl) {
-        this.tabpnl = tabpnl;
-    }
-
-    public javax.swing.JTable getTblPessoa() {
-        return tblPessoa;
-    }
-
-    public void setTblPessoa(javax.swing.JTable tblPessoa) {
-        this.tblPessoa = tblPessoa;
-    }
-
+   
 }
