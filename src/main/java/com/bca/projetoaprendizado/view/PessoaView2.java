@@ -75,7 +75,7 @@ public class PessoaView2 extends javax.swing.JFrame {
             }
 
         });
-       DefaultComboBoxModel cboModel = (DefaultComboBoxModel) cboSearch.getModel();
+        DefaultComboBoxModel cboModel = (DefaultComboBoxModel) cboSearch.getModel();
         JTextComponent tc = (JTextComponent) cboSearch.getEditor().getEditorComponent();
         tc.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -321,7 +321,12 @@ public class PessoaView2 extends javax.swing.JFrame {
         if (new Praticidade().fieldsFilled(pnlRoot)) {
             PessoaVO objPeople = new PessoaVO(txtName.getText(), Integer.parseInt(txtLuckyNumber.getText()));
             try {
-                control.send(objPeople);
+                
+                if (control.send(objPeople)) {
+                    JOptionPane.showMessageDialog(null, "Deu certo ");
+                    new Praticidade().clearFields(pnlRoot);
+                }
+
             } catch (MyException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }

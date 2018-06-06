@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 import com.bca.projetoaprendizado.util.HibernateUtil;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
 
 /**
  *
@@ -42,7 +43,7 @@ public class PessoaDAO {
 //        }
 //
 //    }
-    public void Salvar(PessoaVO p) throws MyException {
+    public boolean Salvar(PessoaVO p) throws MyException {
         //obtem uma sessao
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null; //permite transacao com o BD 
@@ -51,6 +52,7 @@ public class PessoaDAO {
             tx = session.beginTransaction();
             session.saveOrUpdate(p);
             tx.commit();//faz a transacao
+            return true;
         } catch (Exception e) {
             System.out.println("(salvar) problem:" + e.getMessage());
 
@@ -59,6 +61,7 @@ public class PessoaDAO {
         } finally {
             session.close();
         }
+        return false;
     }
 
     public List<PessoaVO> listar() {
@@ -72,7 +75,7 @@ public class PessoaDAO {
 
             return Pessoas;
 
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println("Problem on list " + e.getMessage());
         }
         return null;
@@ -89,40 +92,11 @@ public class PessoaDAO {
                 return Pessoas;
             }
 
-        } catch (Exception e) {
+        } catch (HibernateException e) {
             System.out.println("Problem on lsit with search " + e.getMessage());
         }
         return null;
     }
 
-//public List<PessoaVO> listar() throws MyException {
-//        List<PessoaVO> lst = new ArrayList<>();
-//        try {
-//            Res = Stm.executeQuery("SELECT * FROM pessoa;");
-//            while (Res.next()) {
-//                lst.add(new PessoaVO(Integer.parseInt(Res.getString("id")),
-//                        Res.getObject("name").toString(),
-//                        Integer.parseInt(Res.getObject("luckyNumber").toString())));
-//            }
-//        } catch (SQLException ex) {
-//            throw new MyException(sMsgError);
-//        }
-//        return lst;
-//    }
-//
-//    public List<PessoaVO> listar(String sSearch) throws MyException {
-//        List<PessoaVO> lst = new ArrayList<>();
-//        
-//        try {
-//            Res = Stm.executeQuery("SELECT * FROM pessoa where name like '"+sSearch +"%';");
-//            while (Res.next()) {
-//                lst.add(new PessoaVO(Integer.parseInt(Res.getString("id")),
-//                        Res.getObject("name").toString(),
-//                        Integer.parseInt(Res.getObject("luckyNumber").toString())));
-//            }
-//        } catch (SQLException ex) {
-//            throw new MyException(sMsgError);
-//        }
-//        return lst;
-//    }
+
 }

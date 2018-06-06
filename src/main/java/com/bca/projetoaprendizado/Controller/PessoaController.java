@@ -16,9 +16,9 @@ public class PessoaController {
 
     }
 
-    public void send(PessoaVO p) throws MyException {
+    public boolean send(PessoaVO p) throws MyException {
         //test
-        new PessoaBO().save(p);
+       return new PessoaBO().save(p);
 
     }
 
