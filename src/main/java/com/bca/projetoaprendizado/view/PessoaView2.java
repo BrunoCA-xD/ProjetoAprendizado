@@ -325,6 +325,8 @@ public class PessoaView2 extends javax.swing.JFrame {
                 if (control.send(objPeople)) {
                     JOptionPane.showMessageDialog(null, "Deu certo ");
                     new Praticidade().clearFields(pnlRoot);
+                }else{
+                    JOptionPane.showMessageDialog(null, "eeee");
                 }
 
             } catch (MyException e) {

@@ -17,7 +17,7 @@ import com.bca.projetoaprendizado.model.vo.PessoaVO;
 public class PessoaBO {
 
     public boolean save(PessoaVO p) throws MyException {
-        return new PessoaDAO().Salvar(p);
+        return new PessoaDAO().salvar(p);
     }
 
     public void list() {
@@ -25,7 +25,8 @@ public class PessoaBO {
     }
 
     public List<PessoaVO> lista() throws MyException {
-        List<PessoaVO> lst =new PessoaDAO().listar();
+        System.out.println("com.bca.projetoaprendizado.model.bo.PessoaBO.lista()");;
+        List<PessoaVO> lst = new PessoaDAO().getList();
         return lst;
     }
 

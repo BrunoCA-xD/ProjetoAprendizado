@@ -20,13 +20,13 @@ import org.hibernate.HibernateException;
  *
  * @author bruno
  */
-public class PessoaDAO {
+public class PessoaDAO extends GenericDAO<PessoaVO, Long> {
 
     private final String sMsgError = "Ocorreu algum problema com o banco de dados";
     private Session session;
 
     public PessoaDAO() {
-
+        super(PessoaVO.class);
     }
 
 //    public void save(PessoaVO p) throws MyException {
@@ -43,7 +43,7 @@ public class PessoaDAO {
 //        }
 //
 //    }
-    public boolean Salvar(PessoaVO p) throws MyException {
+    /*public boolean Salvar(PessoaVO p) throws MyException {
         //obtem uma sessao
         session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null; //permite transacao com o BD 
@@ -80,7 +80,7 @@ public class PessoaDAO {
         }
         return null;
     }
-
+     */
     public List<PessoaVO> listar(String sSearch) {
         try {
             List<PessoaVO> Pessoas;
@@ -97,6 +97,4 @@ public class PessoaDAO {
         }
         return null;
     }
-
-
 }
