@@ -13,6 +13,8 @@ import org.hibernate.Transaction;
 
 import com.bca.projetoaprendizado.util.HibernateUtil;
 import java.util.List;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 

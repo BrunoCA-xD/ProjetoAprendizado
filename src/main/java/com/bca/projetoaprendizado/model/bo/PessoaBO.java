@@ -31,7 +31,7 @@ public class PessoaBO {
     }
 
     public List<PessoaVO> lista(String sSearch) throws MyException {
-        List<PessoaVO> lst = new PessoaDAO().listar(sSearch);;
+        List<PessoaVO> lst = new PessoaDAO().getList("name",sSearch);;
         return lst;
     }
 }
