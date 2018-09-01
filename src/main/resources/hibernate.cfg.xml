@@ -45,6 +45,8 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="com/bca/projetoaprendizado/Pessoa.hbm.xml"/>
+    <mapping resource="com/bca/projetoaprendizado/PessoaVO.hbm.xml"/>
+    <mapping resource="com/bca/projetoaprendizado/Compra.hbm.xml"/>
+    <mapping resource="com/bca/projetoaprendizado/Item.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

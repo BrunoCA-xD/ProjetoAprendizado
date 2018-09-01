@@ -83,7 +83,7 @@ public abstract class GenericDAO<T, I extends Serializable> {
         Query q = entityManager.createQuery("SELECT p FROM "
                 + persistedClass.getSimpleName()
                 + " p WHERE p." + col + " LIKE :search");
-        q.setParameter("search", search +"%");
+        q.setParameter("search", search + "%");
         return q.getResultList();
 
     }
